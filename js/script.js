@@ -49,7 +49,9 @@ const teamArray =[
     
   }
 ];
+
 console.log('-->', teamArray);
+
 
 for(let i in teamArray){
   const team = teamArray[i];
@@ -67,7 +69,52 @@ for(let i in teamArray){
       <p>${team.position}</p>
     </div>
   </div>
-  `
+  `;
   document.querySelector('.team-container').innerHTML += output;
 };
 
+//------------------------[Extra]--------------------------
+
+
+const newImage =[
+  'img/new-team-member-01.jpg',
+  'img/new-team-member-02.jpg',
+  'img/new-team-member-03.jpg',
+  'img/new-team-member-04.jpg'
+];
+
+document.getElementById('addMemberButton').addEventListener('click',function(){
+
+  let index = getRandomNumber(0, newImage.length - 1);
+
+  const newMember = {
+    image: newImage[index],
+    name:document.querySelector('#name').value,
+    position :document.querySelector('#role').value,
+   };
+
+  teamArray.push(newMember);
+
+  output =
+  ` 
+  <div class="team-card">
+    <div class="card-image">
+      <img
+        src="${newMember.image}"
+        />
+    </div>
+    <div class="card-text">
+      <h3>${newMember.name}</h3>
+      <p>${newMember.position}</p>
+    </div>
+  </div>
+  `;
+
+  document.querySelector('.team-container').innerHTML += output;
+
+}); 
+
+
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
