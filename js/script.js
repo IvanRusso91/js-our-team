@@ -10,3 +10,64 @@ Utilizzare gli input presenti nella pagina per permettere all’utente di aggiun
 */
 
 //-------------------------------------------------
+
+const teamArray =[
+  {
+    image:'img/wayne-barnett-founder-ceo.jpg',
+    name: 'Wayne Barnett',
+    position : 'Founder & CEO',
+    
+  },
+  {
+    image:'img/angela-caroll-chief-editor.jpg',
+    name: 'Angela Caroll',
+    position : 'Chief Editor',
+    
+  },
+  {
+    image:'img/walter-gordon-office-manager.jpg',
+    name: 'Walter Gordon',
+    position : 'Office Manager',
+
+  },
+  {
+    image:'img/angela-lopez-social-media-manager.jpg',
+    name: 'Angela Lopez',
+    position : 'Social Media Manager',
+    
+  },
+  {
+    image:'img/scott-estrada-developer.jpg',
+    name: 'Scott Extrada',
+    position : 'Developer',
+    
+  },
+  {
+    image:'img/barbara-ramos-graphic-designer.jpg',
+    name: 'Barbara Ramos',
+    position : 'Graphic Designer',
+    
+  }
+];
+console.log('-->', teamArray);
+
+for(let i in teamArray){
+  const team = teamArray[i];
+  console.log(team);
+  const output =
+  `
+  <div class="team-card">
+    <div class="card-image">
+      <img
+        src="${team.image}"
+        />
+    </div>
+    <div class="card-text">
+      <h3>${team.name}</h3>
+      <p>${team.position}</p>
+    </div>
+  </div>
+  `
+  document.querySelector('.team-container').innerHTML += output;
+};
+
