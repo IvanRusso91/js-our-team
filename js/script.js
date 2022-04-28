@@ -111,10 +111,16 @@ document.getElementById('addMemberButton').addEventListener('click',function(){
   `;
 
   document.querySelector('.team-container').innerHTML += output;
-
+  resetForm();
 }); 
 
 
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function resetForm(){
+  document.getElementById('name').value= '';
+  document.getElementById('role').value= '';
+  document.getElementById('image').value= '';
 }
